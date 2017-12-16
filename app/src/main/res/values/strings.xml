@@ -13,4 +13,11 @@
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="tracker_navigation">Трекер</string>
+    <string name="request_navigation">Заявка</string>
+    <string name="useful_navigation">Полезное</string>
+    <string name="tracker_button_text">Поиск</string>
+    <string name="prompt_tracker">№ Контейнера/накладной</string>
+    <string name="tracker_last_place_prompt">Пункт последнего местонахождения</string>
+    <string name="tracker_status_prompt">Статус груза</string>
 </resources>
