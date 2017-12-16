@@ -1,4 +1,4 @@
-package ru.atc_consulting.clientapp;
+package ru.atc_consulting.clientapp.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -6,6 +6,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+
+import ru.atc_consulting.clientapp.R;
 
 public class MainActivity extends AppCompatActivity {
 

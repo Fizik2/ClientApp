@@ -1,9 +1,8 @@
-package ru.atc_consulting.clientapp;
+package ru.atc_consulting.clientapp.activities;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
@@ -28,20 +27,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import ru.atc_consulting.clientapp.App;
+import ru.atc_consulting.clientapp.R;
+
+
+import retrofit2.Response;
 
 
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
-
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
-    };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -258,14 +256,20 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
-
+            // TODO: Когда появится нормальный сервер, дописать логику
             try {
                 // Simulate network access.
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 return false;
             }
+            try {
+                Response response = App.getApi().login("login", "hash").execute();
+            } catch (IOException e) {
+                e.printStackTrace();
+                //return false;
+            }
+
 
             return true;
         }
