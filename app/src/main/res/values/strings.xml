@@ -20,4 +20,13 @@
     <string name="prompt_tracker">№ Контейнера/накладной</string>
     <string name="tracker_last_place_prompt">Пункт последнего местонахождения</string>
     <string name="tracker_status_prompt">Статус груза</string>
+
+    <!--Request fragment-->
+    <string name="prompt_request_fio">ФИО</string>
+    <string name="prompt_request_company">Название компании</string>
+    <string name="prompt_request_phone">Телефон</string>
+    <string name="prompt_request_mail">e-mail</string>
+    <string name="prompt_request_desc">Описание груза</string>
+    <string name="prompt_request_photo">Прикрепить фото</string>
+    <string name="prompt_request_calc">Рассчитать</string>
 </resources>
