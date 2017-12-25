@@ -36,6 +36,7 @@ import ru.atc_consulting.clientapp.R;
 
 
 import retrofit2.Response;
+import ru.atc_consulting.clientapp.domain.User;
 
 
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
@@ -280,7 +281,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                mActivity.startActivity(new Intent(mActivity, MainActivity.class));
+                User.loginUser(mLogin, "TOKEN", mActivity);
                 finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

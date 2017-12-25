@@ -29,4 +29,22 @@
     <string name="prompt_request_desc">Описание груза</string>
     <string name="prompt_request_photo">Прикрепить фото</string>
     <string name="prompt_request_calc">Рассчитать</string>
+    <string name="settings">Settings</string>
+
+
+    <!-- Left menu -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="login">Войти</string>
+    <string name="loyalty">Программа лояльности</string>
+    <string name="call">Позвонить</string>
+    <string name="nav_name">Name</string>
+    <string name="nav_status">Статус 45НС</string>
+
+
+    <!--SharedPreferences-->
+    <string name="settings_login">login</string>
+    <string name="settings_token">token</string>
+
 </resources>
