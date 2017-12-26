@@ -14,6 +14,9 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="tracker_navigation">Трекер</string>
+    <string name="cabinet_navigation">Кабинет</string>
+    <string name="calc_navigation">Калькулятор</string>
+    <string name="chat_navigation">Чат</string>
     <string name="request_navigation">Заявка</string>
     <string name="useful_navigation">Полезное</string>
     <string name="tracker_button_text">Поиск</string>
@@ -46,5 +49,10 @@
     <!--SharedPreferences-->
     <string name="settings_login">login</string>
     <string name="settings_token">token</string>
+    <string name="search">Поиск</string>
+    <string name="no_data">No data</string>
+    <string name="cabinet_sample_id">Sample Id</string>
+    <string name="cabinet_sample_status">Sample status</string>
+    <string name="cabinet_sample_place">Sample place</string>
 
 </resources>
