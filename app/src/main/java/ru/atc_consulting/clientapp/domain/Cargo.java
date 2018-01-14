@@ -4,9 +4,10 @@ package ru.atc_consulting.clientapp.domain;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Cargo {
+public class Cargo implements Serializable{
 
     private String id;
     private String status;

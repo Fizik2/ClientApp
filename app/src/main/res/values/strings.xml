@@ -15,7 +15,6 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="tracker_navigation">Трекер</string>
     <string name="cabinet_navigation">Кабинет</string>
-    <string name="calc_navigation">Калькулятор</string>
     <string name="chat_navigation">Чат</string>
     <string name="request_navigation">Заявка</string>
     <string name="useful_navigation">Полезное</string>
@@ -54,5 +53,6 @@
     <string name="cabinet_sample_id">Sample Id</string>
     <string name="cabinet_sample_status">Sample status</string>
     <string name="cabinet_sample_place">Sample place</string>
-
+    <string name="main_scheme_transportation">Основные схемы перевозок</string>
+    <string name="helpful_contacts">Контакты</string>
 </resources>

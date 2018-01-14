@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -50,6 +51,9 @@ public class TrackerFragment extends Fragment {
         mTrackerLastPlaceText = (TextView) mView.findViewById(R.id.tracker_last_place_text);
         mTrackerStatusPrompt = (TextView) mView.findViewById(R.id.tracker_status_prompt);
         mTrackerStatusText = (TextView) mView.findViewById(R.id.tracker_status_text);
+
+
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
 
         return mView;

@@ -7,13 +7,18 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,13 +47,12 @@ public class CabinetFragment extends ListFragment {
     }
 
 
-
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
         List<Cargo> cargos = new ArrayList<>();
-        for(int i = 0; i < 15; i++){
+        for (int i = 0; i < 15; i++) {
             List<String> placesHistory = new ArrayList<>();
             placesHistory.add("20.01 - На станции назначении");
             placesHistory.add("08.01 - Движение по ЖД");
@@ -62,7 +66,29 @@ public class CabinetFragment extends ListFragment {
 
         CabinetAdapter adapter = new CabinetAdapter(getActivity());
         adapter.setData(cargos);
-        setListAdapter(adapter);
+        this.setListAdapter(adapter);
+
+        final ListView lv = getListView();
+        lv.setClickable(true);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                Cargo cargo = (Cargo) lv.getItemAtPosition(position);
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("cargo", cargo);
+                Fragment fragment = new DeliveryDetailsFragment();
+                fragment.setArguments(bundle);
+
+                FragmentTransaction trans = getFragmentManager().beginTransaction();
+                trans.replace(R.id.root_frame, fragment);
+                trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                trans.addToBackStack(null);
+
+                trans.commit();
+            }
+        });
     }
 
 }

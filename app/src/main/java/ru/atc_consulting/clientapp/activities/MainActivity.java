@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,6 +20,8 @@ import ru.atc_consulting.clientapp.R;
 import ru.atc_consulting.clientapp.adapters.BottomBarAdapter;
 import ru.atc_consulting.clientapp.domain.User;
 import ru.atc_consulting.clientapp.fragments.CabinetFragment;
+import ru.atc_consulting.clientapp.fragments.CabinetRootFragment;
+import ru.atc_consulting.clientapp.fragments.HelpfulRootFragment;
 import ru.atc_consulting.clientapp.fragments.RequestFragment;
 import ru.atc_consulting.clientapp.fragments.TrackerFragment;
 import ru.atc_consulting.clientapp.help.NoSwipePager;
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView mNavigationLeftView;
     private AHBottomNavigationItem mTrackerBottomNavItem;
     private AHBottomNavigationItem mCabinetBottomNavItem;
-    private AHBottomNavigationItem mBottomNavItem2, mBottomNavItem3, mBottomNavItem4, mBottomNavItem5;
+    private AHBottomNavigationItem mBottomNavItem2, mBottomNavItem4, mBottomNavItem5;
     private Activity mActivity = this;
 
     @Override
@@ -61,7 +64,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mTrackerBottomNavItem = new AHBottomNavigationItem(getResources().getString(R.string.tracker_navigation), android.R.drawable.ic_dialog_email);
         mCabinetBottomNavItem = new AHBottomNavigationItem(getResources().getString(R.string.cabinet_navigation), android.R.drawable.ic_dialog_email);
         mBottomNavItem2 = new AHBottomNavigationItem(getResources().getString(R.string.request_navigation), android.R.drawable.ic_dialog_email);
-        mBottomNavItem3 = new AHBottomNavigationItem(getResources().getString(R.string.calc_navigation), android.R.drawable.ic_dialog_email);
         mBottomNavItem4 = new AHBottomNavigationItem(getResources().getString(R.string.chat_navigation), android.R.drawable.ic_dialog_email);
         mBottomNavItem5 = new AHBottomNavigationItem(getResources().getString(R.string.useful_navigation), android.R.drawable.ic_dialog_email);
 
@@ -96,12 +98,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // add fragments
         // На нулевом месте в mPager идёт личный кабинет, на первом трекер и тд
-        CabinetFragment cabinetFragment = new CabinetFragment();
+        CabinetRootFragment cabinetFragment = new CabinetRootFragment();
         mPagerAdapter.addFragments(cabinetFragment);
         TrackerFragment trackerFragment = new TrackerFragment();
         mPagerAdapter.addFragments(trackerFragment);
         RequestFragment requestFragment = new RequestFragment();
         mPagerAdapter.addFragments(requestFragment);
+        mPagerAdapter.addFragments(new Fragment());//TODO: Change to chat fragment
+        HelpfulRootFragment helpfulRootFragment = new HelpfulRootFragment();
+        mPagerAdapter.addFragments(helpfulRootFragment);
+
 
 
         // set adapter
@@ -111,7 +117,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void addBottomNavigationItemsWithoutFirst() {
         mBottomNavigationView.addItem(mBottomNavItem2);
-        mBottomNavigationView.addItem(mBottomNavItem3);
         mBottomNavigationView.addItem(mBottomNavItem4);
         mBottomNavigationView.addItem(mBottomNavItem5);
     }
