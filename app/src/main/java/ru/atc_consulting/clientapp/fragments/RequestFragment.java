@@ -54,7 +54,7 @@ public class RequestFragment extends Fragment {
 
                 // send e-mail with data
                 Intent i = new Intent(Intent.ACTION_SEND);
-                i.setType("message/rfc822");
+                i.setType("adapter_item_message/rfc822");
                 i.putExtra(Intent.EXTRA_EMAIL, new String[]{MAIL});
                 i.putExtra(Intent.EXTRA_SUBJECT, "Заявка на расчет");
                 i.putExtra(Intent.EXTRA_TEXT, String.format("ФИО: %s;\n" +

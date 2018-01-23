@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,8 +18,8 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import ru.atc_consulting.clientapp.R;
 import ru.atc_consulting.clientapp.adapters.BottomBarAdapter;
 import ru.atc_consulting.clientapp.domain.User;
-import ru.atc_consulting.clientapp.fragments.CabinetFragment;
 import ru.atc_consulting.clientapp.fragments.CabinetRootFragment;
+import ru.atc_consulting.clientapp.fragments.ChatFragment;
 import ru.atc_consulting.clientapp.fragments.HelpfulRootFragment;
 import ru.atc_consulting.clientapp.fragments.RequestFragment;
 import ru.atc_consulting.clientapp.fragments.TrackerFragment;
@@ -35,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView mNavigationLeftView;
     private AHBottomNavigationItem mTrackerBottomNavItem;
     private AHBottomNavigationItem mCabinetBottomNavItem;
-    private AHBottomNavigationItem mBottomNavItem2, mBottomNavItem4, mBottomNavItem5;
+    private AHBottomNavigationItem mBottomNavItem2, mBottomNavItem3, mBottomNavItem4, mBottomNavItem5;
     private Activity mActivity = this;
 
     @Override
@@ -64,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mTrackerBottomNavItem = new AHBottomNavigationItem(getResources().getString(R.string.tracker_navigation), android.R.drawable.ic_dialog_email);
         mCabinetBottomNavItem = new AHBottomNavigationItem(getResources().getString(R.string.cabinet_navigation), android.R.drawable.ic_dialog_email);
         mBottomNavItem2 = new AHBottomNavigationItem(getResources().getString(R.string.request_navigation), android.R.drawable.ic_dialog_email);
+//        mBottomNavItem3 = new AHBottomNavigationItem(getResources().getString(R.string.calc_navigation), android.R.drawable.ic_dialog_email);
         mBottomNavItem4 = new AHBottomNavigationItem(getResources().getString(R.string.chat_navigation), android.R.drawable.ic_dialog_email);
         mBottomNavItem5 = new AHBottomNavigationItem(getResources().getString(R.string.useful_navigation), android.R.drawable.ic_dialog_email);
 
@@ -104,10 +104,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mPagerAdapter.addFragments(trackerFragment);
         RequestFragment requestFragment = new RequestFragment();
         mPagerAdapter.addFragments(requestFragment);
-        mPagerAdapter.addFragments(new Fragment());//TODO: Change to chat fragment
+        ChatFragment chatFragment = new ChatFragment();
+        mPagerAdapter.addFragments(chatFragment);
         HelpfulRootFragment helpfulRootFragment = new HelpfulRootFragment();
         mPagerAdapter.addFragments(helpfulRootFragment);
-
 
 
         // set adapter
@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             mNavigationLeftView.getMenu().findItem(R.id.nav_name).setVisible(false);
             mBottomNavigationView.addItem(mTrackerBottomNavItem);
 
-            if(mBottomNavigationView.getCurrentItem() == 0 || mBottomNavigationView.getCurrentItem() == 1)
+            if (mBottomNavigationView.getCurrentItem() == 0 || mBottomNavigationView.getCurrentItem() == 1)
                 mPager.setCurrentItem(1);
 
         } else {
@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             mNavigationLeftView.getMenu().findItem(R.id.nav_name).setVisible(true);
             mBottomNavigationView.addItem(mCabinetBottomNavItem);
 
-            if(mBottomNavigationView.getCurrentItem() == 0 || mBottomNavigationView.getCurrentItem() == 1)
+            if (mBottomNavigationView.getCurrentItem() == 0 || mBottomNavigationView.getCurrentItem() == 1)
                 mPager.setCurrentItem(0);
         }
         addBottomNavigationItemsWithoutFirst();
