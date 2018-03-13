@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:weightSum="100">
+
+        <com.google.android.gms.maps.MapView android:id="@+id/mapview"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="70"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:text="Room 1905, North Tower, World Trade Center, No. 371-375 Huanshi Road East, Guangzhou, 510095, China\n中国广州市越秀区环市东路371－375号世贸大厦北搭1905室, 邮编510095"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:text="+86 20 83652501"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:text="can@atc-logistic.com"
+            android:textSize="16sp" />
+
+    </LinearLayout>

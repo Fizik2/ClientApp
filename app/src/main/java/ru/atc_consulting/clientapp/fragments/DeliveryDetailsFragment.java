@@ -38,6 +38,13 @@ public class DeliveryDetailsFragment extends Fragment {
         for(String history : mCargo.getPlacesHistory()){
             TextView textView = new TextView(getContext());
             textView.setText(history);
+            textView.setTextSize(18);
+
+            LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            llp.setMargins(0, 20, 0, 0); // llp.setMargins(left, top, right, bottom);
+            textView.setLayoutParams(llp);
+
+
             historyContainer.addView(textView);
         }
 

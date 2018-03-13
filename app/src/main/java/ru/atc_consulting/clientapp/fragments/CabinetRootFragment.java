@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,8 +29,10 @@ public class CabinetRootFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_cabinet_root, container, false);
 
+        CabinetFragment cabinetFragment = new CabinetFragment();
+//        cabinetFragment.updateList();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.root_frame, new CabinetFragment());
+        transaction.replace(R.id.root_frame, cabinetFragment);
         transaction.commit();
         return view;
     }

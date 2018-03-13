@@ -27,8 +27,10 @@ import java.util.List;
 import java.util.Objects;
 
 import ru.atc_consulting.clientapp.R;
+import ru.atc_consulting.clientapp.activities.MainActivity;
 import ru.atc_consulting.clientapp.adapters.CabinetAdapter;
 import ru.atc_consulting.clientapp.domain.Cargo;
+import ru.atc_consulting.clientapp.domain.User;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -43,6 +45,7 @@ public class CabinetFragment extends ListFragment {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_cabinet, container, false);
 
+        MainActivity.cabinetFragment = this;
         return mView;
     }
 
@@ -50,45 +53,63 @@ public class CabinetFragment extends ListFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        List<Cargo> cargos = new ArrayList<>();
-        for (int i = 0; i < 15; i++) {
-            List<String> placesHistory = new ArrayList<>();
-            placesHistory.add("20.01 - На станции назначении");
-            placesHistory.add("08.01 - Движение по ЖД");
-            placesHistory.add("01.01 - Ожидает ЖД");
-            placesHistory.add("28.12 - Таможенное оформление");
-            placesHistory.add("10.12 - В порту");
-            placesHistory.add("01.12 - В море");
-            placesHistory.add("03.11 - У отправителя");
-            cargos.add(new Cargo("id 123456789", "ДТ выпущена", "Москва", placesHistory));
-        }
-
-        CabinetAdapter adapter = new CabinetAdapter(getActivity());
-        adapter.setData(cargos);
-        this.setListAdapter(adapter);
-
-        final ListView lv = getListView();
-        lv.setClickable(true);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                Cargo cargo = (Cargo) lv.getItemAtPosition(position);
-
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("cargo", cargo);
-                Fragment fragment = new DeliveryDetailsFragment();
-                fragment.setArguments(bundle);
-
-                FragmentTransaction trans = getFragmentManager().beginTransaction();
-                trans.replace(R.id.root_frame, fragment);
-                trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-                trans.addToBackStack(null);
-
-                trans.commit();
-            }
-        });
+        updateList();
     }
 
+
+    private List<Cargo> data;
+    CabinetAdapter adapter;
+
+    public void updateList(){
+        if(adapter == null){
+            if (getActivity() == null) return;
+            adapter = new CabinetAdapter(getActivity());
+        }
+
+        data = User.getCurrentCargos();
+        adapter.setData(data);
+        this.setListAdapter(adapter);
+        updateClickListener();
+
+
+
+        getActivity().getSupportFragmentManager().addOnBackStackChangedListener(
+                new FragmentManager.OnBackStackChangedListener() {
+                    public void onBackStackChanged() {
+                        updateClickListener();
+                    }
+                });
+
+
+    }
+
+    private void updateClickListener(){
+        try {
+            final ListView lv = getListView();
+
+            lv.setClickable(true);
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                    Cargo cargo = (Cargo) lv.getItemAtPosition(position);
+
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("cargo", cargo);
+                    Fragment fragment = new DeliveryDetailsFragment();
+                    fragment.setArguments(bundle);
+
+                    FragmentTransaction trans = getFragmentManager().beginTransaction();
+                    trans.replace(R.id.root_frame, fragment);
+                    trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                    trans.addToBackStack("1");
+
+
+                    trans.commit();
+                    Log.d("","");
+                }
+            });
+
+        }catch (IllegalStateException ex){ex.printStackTrace();}
+    }
 }

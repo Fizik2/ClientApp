@@ -85,6 +85,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+        setTitle("Авторизация");
+
     }
 
 
@@ -113,7 +115,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         View focusView = null;
 
         // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+        if (TextUtils.isEmpty(password) || !isPasswordValid(password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
@@ -264,15 +266,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             } catch (InterruptedException e) {
                 return false;
             }
-            try {
-                Response response = App.getApi().login("login", "hash").execute();
-            } catch (IOException e) {
-                e.printStackTrace();
-                //return false;
-            }
 
-
-            return true;
+            return User.loginUser(mLogin, mPassword, mActivity);
         }
 
         @Override
@@ -281,7 +276,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                User.loginUser(mLogin, "TOKEN", mActivity);
                 finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

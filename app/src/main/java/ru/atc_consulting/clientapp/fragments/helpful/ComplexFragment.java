@@ -8,15 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import info.hoang8f.android.segmented.SegmentedGroup;
 import ru.atc_consulting.clientapp.R;
-import ru.atc_consulting.clientapp.domain.Cargo;
 
-public class AviaFragment extends Fragment {
+public class ComplexFragment extends Fragment {
 
-    public AviaFragment(){
+    public ComplexFragment(){
 
     }
 
@@ -27,7 +25,7 @@ public class AviaFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        mView = inflater.inflate(R.layout.fragment_helpful_avia, container, false);
+        mView = inflater.inflate(R.layout.fragment_helpful_complex, container, false);
         return mView;
     }
 

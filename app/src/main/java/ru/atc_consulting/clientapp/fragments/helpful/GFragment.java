@@ -10,14 +10,12 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import ru.atc_consulting.clientapp.R;
-import ru.atc_consulting.clientapp.domain.Cargo;
 
-public class MoscowFragment extends Fragment  implements OnMapReadyCallback {
+public class GFragment extends Fragment  implements OnMapReadyCallback {
 
 
 
@@ -31,7 +29,7 @@ public class MoscowFragment extends Fragment  implements OnMapReadyCallback {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        mView = inflater.inflate(R.layout.fragment_helpful_moscow, container, false);
+        mView = inflater.inflate(R.layout.fragment_helpful_g, container, false);
 
         mapView = (MapView) mView.findViewById(R.id.mapview);
         mapView.onCreate(savedInstanceState);
@@ -55,9 +53,9 @@ public class MoscowFragment extends Fragment  implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.getUiSettings().setMyLocationButtonEnabled(false);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(55.8891036, 37.5919123), 17.0f));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(23.1364457, 113.2854296), 17.0f));
         mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(55.8891036, 37.5919123))
+                .position(new LatLng(23.1364457, 113.2854296))
         );
     }
 

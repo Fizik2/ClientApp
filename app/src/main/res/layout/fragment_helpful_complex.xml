@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:checked="true"
-                android:text="Авиаперевозки" />
+                android:text="Авто" />
 
             <RadioButton
                 android:id="@+id/button22"
@@ -57,7 +57,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
-                android:text="От 4$ за кг\n3-5 дней"
+                android:text="150$/куб - 20 дней (из Пекина)\n180$/куб - 25 дней (из Гуанчжоу)\n135$/куб - 35 дней (из Гуанчжоу)"
                 android:textStyle="bold" />
 
             <TextView
@@ -65,7 +65,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
-                android:text="Прямая авиадоставка грузов из городов Китая (Пекин, Шанхай, Шэнчжень, Гуанчжоу, Ченду, Ухань, Гонконг), Вьетнама и др. стран Юго-Восточной Азии и Европы\nТаможенное оформление в Москве и Белоруссии" />
+                android:text="Сборные машины со складов в Пекине и Гуанчжоу\nЗабор грузов машинами напрямую с фабрик\nОформление грузов в странах Таможенного Союза" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -79,7 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:text="минимальные сроки доставки грузов;\nгарантия сохранности хрупких и ценных грузов;\nсрочная доставка образцов товара." />
+                android:text="минимальное количество перегрузов;\nвариативность маршрута следования;\nвозможность отследить местонахождение груза." />
 
         </LinearLayout>
 
