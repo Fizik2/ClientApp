@@ -33,7 +33,7 @@ public class RequestFragment extends Fragment {
     private TextView mDescText;
     private Button mPhotoButton;
     private Button mSubmitButton;
-    private String mPhotoPath;
+    private String mPhotoPath = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,6 +51,21 @@ public class RequestFragment extends Fragment {
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // check stuff
+                if (Objects.equals(mFioText.getText().toString(), "") | Objects.equals(mCompanyText.getText().toString(), "") | Objects.equals(mPhoneText.getText().toString(), "") | Objects.equals(mMailText.getText().toString(), "") | Objects.equals(mDescText.getText().toString(), "") |
+                        mFioText.getText() == null | mCompanyText.getText() == null | mPhoneText.getText() == null | mMailText.getText() == null | mDescText.getText() == null) {
+                    Toast.makeText(getContext(), "Пожалуйста, заполните все поля.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!mPhoneText.getText().toString().contains("+")) {
+                    Toast.makeText(getContext(), "Пожалуйста, укажите код страны в телефоне.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!mMailText.getText().toString().contains("ru")) {
+                    Toast.makeText(getContext(), "Пожалуйста, проверьте правильность e-mail.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 // send e-mail with data
                 Intent i = new Intent(Intent.ACTION_SEND);
@@ -72,8 +87,6 @@ public class RequestFragment extends Fragment {
                 } catch (android.content.ActivityNotFoundException ex) {
                     Toast.makeText(getContext(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         });
 
@@ -92,7 +105,6 @@ public class RequestFragment extends Fragment {
         });
 
         return mView;
-
     }
 
     @Override
@@ -122,5 +134,7 @@ public class RequestFragment extends Fragment {
             }
 
         }
+//        ((MainActivity) getActivity()).SetPage(2);
     }
+
 }

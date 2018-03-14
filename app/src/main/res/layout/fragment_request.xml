@@ -12,7 +12,8 @@
             android:id="@+id/request_photo_frame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/fab_margin" />
+            android:layout_margin="@dimen/fab_margin"
+            android:visibility="visible" />
 
 
         <AutoCompleteTextView

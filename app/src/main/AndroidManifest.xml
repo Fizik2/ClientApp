@@ -53,6 +53,7 @@
             </intent-filter>
 
         </activity>
+        <activity android:name=".activities.LoyaltyActivity" />
 
         <receiver android:name=".recievers.GmailReceiver">
             <intent-filter>

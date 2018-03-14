@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:text="Сегодня ATC CL осуществляет полный спектр услуг по содействию российским компаниям во внешнеторговой деятельности с Китаем, странами Юго-Восточной Азии и Европы, предлагает как готовые отраслевые, так и уникальные комплексные логистические и консалтинговые решения. В широкий перечень услуг, оказываемых ATC CL, входят консалтинг и аутсорсинг ВЭД, организация и поддержка торговых контрактов с партнерами в Китае, странах Юго-Восточной Азии и Европы, морские и железнодорожные контейнерные перевозки, авиаперевозка грузов, мультимодальные транспортные услуги, консолидация и перевозка сборных грузов, таможенное оформление, обработка и хранение грузов на складах в России и за её пределами." />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:text="Мы предлагаем:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin_double"
+            android:text="1. Работа по удобным и проверенным транспортным схемам;" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin_double"
+            android:text="2. Предоставление персонального консультанта;" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin_double"
+            android:text="3. Работа  диспетчерской службы 24 часа в сутки;" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin_double"
+            android:text="4. Прозрачность в партнерских отношениях;" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin_double"
+            android:text="5. Ответственность на всех этапах сотрудничества;" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin_double"
+            android:text="6. Соблюдение сроков доставки;" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin_double"
+            android:text="7. Автоматизация планирования грузоперевозок;" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin_double"
+            android:text="8. Индивидуальный подход к поставленным задачам." />
+
+    </LinearLayout>
+
+</ScrollView>
