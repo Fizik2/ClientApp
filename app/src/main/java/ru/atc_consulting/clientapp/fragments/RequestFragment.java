@@ -23,7 +23,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class RequestFragment extends Fragment {
 
-    private static final String MAIL = "ndmelentev@yandex.ru";
+    private static final String MAIL = "info@atc-consulting.ru";
     private static final int RESULT_LOAD_IMAGE = 1;
     private View mView;
     private TextView mFioText;
@@ -62,7 +62,7 @@ public class RequestFragment extends Fragment {
                     Toast.makeText(getContext(), "Пожалуйста, укажите код страны в телефоне.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (!mMailText.getText().toString().contains("ru")) {
+                if (!mMailText.getText().toString().contains("@")) {
                     Toast.makeText(getContext(), "Пожалуйста, проверьте правильность e-mail.", Toast.LENGTH_SHORT).show();
                     return;
                 }

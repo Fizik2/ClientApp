@@ -3,6 +3,7 @@ package ru.atc_consulting.clientapp.activities;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
         // Left menu starts
@@ -76,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mBottomNavigationView.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override
             public boolean onTabSelected(int position, boolean wasSelected) {
+                Log.d("!!!!!!!!!!!!!!!!!!!", "setOnTabSelectedListener " + position);
                 // На нулевом месте в mPager идёт личный кабинет, на первом трекер и тд
                 if (!wasSelected) {
                     if (position == 0) {
@@ -220,8 +224,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             mNavigationLeftView.getMenu().findItem(R.id.nav_logout).setVisible(false);
             mBottomNavigationView.addItem(mTrackerBottomNavItem);
 
-            if (mBottomNavigationView.getCurrentItem() == 0 || mBottomNavigationView.getCurrentItem() == 1)
+            Log.d("!!!!!!!!!!!!!!!!!!!", "onResume  " + mBottomNavigationView.getCurrentItem());
+            if (mBottomNavigationView.getCurrentItem() == 0)
                 mPager.setCurrentItem(1);
+            else
+                mBottomNavigationView.setCurrentItem(mPager.getCurrentItem() - 1, true);
 
         } else {
             mNavigationLeftView.getMenu().findItem(R.id.nav_name).setTitle(user.getLogin());
@@ -233,11 +240,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             mBottomNavigationView.addItem(mCabinetBottomNavItem);
 
-            if (mBottomNavigationView.getCurrentItem() == 0 || mBottomNavigationView.getCurrentItem() == 1)
+            if (mBottomNavigationView.getCurrentItem() == 0)
                 mPager.setCurrentItem(0);
+            else
+                mBottomNavigationView.setCurrentItem(mPager.getCurrentItem(), true);
+
         }
         addBottomNavigationItemsWithoutFirst();
-        mBottomNavigationView.setCurrentItem(0, true);
         if (User.getAuthorizedUser(mActivity) == null) {
             setTitle("Трекер");
         } else {
@@ -245,18 +254,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
 
-        //        List<Cargo> cargos = new ArrayList<>();
-//        for (int i = 0; i < 15; i++) {
-//            List<String> placesHistory = new ArrayList<>();
-//            placesHistory.add("20.01 - На станции назначении");
-//            placesHistory.add("08.01 - Движение по ЖД");
-//            placesHistory.add("01.01 - Ожидает ЖД");
-//            placesHistory.add("28.12 - Таможенное оформление");
-//            placesHistory.add("10.12 - В порту");
-//            placesHistory.add("01.12 - В море");
-//            placesHistory.add("03.11 - У отправителя");
-//            cargos.add(new Cargo("id 123456789", "ДТ выпущена", "Москва", placesHistory));
-//        }
 
         if (cabinetFragment != null) {
             cabinetFragment.updateList();
@@ -264,3 +261,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 }
 
+//TODO: запретить переварачивать
